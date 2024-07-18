@@ -7,13 +7,22 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="fm-commons" />
+        <module name="lorentez-design" />
+        <module name="lorentez-data" />
+        <module name="lorentez-exception" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="fm-commons" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="fm-commons" options="" />
+      <module name="fm-commons" options="-parameters" />
+      <module name="lorentez-common" options="" />
+      <module name="lorentez-data" options="-parameters" />
+      <module name="lorentez-design" options="-parameters" />
+      <module name="lorentez-exception" options="-parameters" />
     </option>
   </component>
 </project>
