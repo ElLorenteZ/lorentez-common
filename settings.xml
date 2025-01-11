@@ -8,6 +8,20 @@
             <username>${env.NEXUS_USERNAME}</username>
             <password>${env.NEXUS_PASSWORD}</password>
         </server>
+        <server>
+            <id>lorentez-artifactory</id>
+            <username>${env.NEXUS_USERNAME}</username>
+            <password>${env.NEXUS_PASSWORD}</password>
+        </server>
     </servers>
+
+    <mirrors>
+        <mirror>
+            <id>central</id>
+            <name>central</name>
+            <url>http://localhost:8081/repository/lorentez-artifactory/</url>
+            <mirrorOf>*</mirrorOf>
+        </mirror>
+    </mirrors>
 
 </settings>

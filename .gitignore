@@ -4,3 +4,5 @@
 /lorentez-data/target/
 /lorentez-design/target/
 /lorentez-exception/target/
+
+*/.flattened-pom.xml
