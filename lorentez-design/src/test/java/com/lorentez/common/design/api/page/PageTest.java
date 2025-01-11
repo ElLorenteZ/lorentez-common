@@ -1,7 +1,6 @@
 package com.lorentez.common.design.api.page;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 
@@ -12,15 +11,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-class FmPageTest {
+class PageTest {
 
     @Test
     void shouldMapPageToPageApiProperly() {
         //given
-        Page<Long> testPage = new PageImpl<>(List.of(2L, 5L, 7L), Pageable.ofSize(2), 3L);
+        org.springframework.data.domain.Page<Long> testPage = new PageImpl<>(List.of(2L, 5L, 7L), Pageable.ofSize(2), 3L);
 
         //when
-        FmPage<Long> result = FmPage.of(testPage, Function.identity());
+        Page<Long> result = Page.of(testPage, Function.identity());
 
         //then
         assertNotNull(result);
@@ -39,7 +38,7 @@ class FmPageTest {
     void shouldMapPageApiToDifferentTypeProperly() {
         //given
         Function<Long, Long> multiplier = (value) -> value * 2L;
-        FmPage<Long> page = FmPage.<Long>builder()
+        Page<Long> page = Page.<Long>builder()
                 .content(List.of(1L, 2L, 3L))
                 .totalPages(1)
                 .totalElements(3L)
@@ -52,7 +51,7 @@ class FmPageTest {
                 .build();
 
         //when
-        FmPage<Long> result = page.map(multiplier);
+        Page<Long> result = page.map(multiplier);
 
         //then
         assertNotNull(result);

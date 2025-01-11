@@ -1,5 +1,5 @@
 package com.lorentez.common.exception;
 
-public interface FmException {
+public interface PrintableException {
     ExceptionProjection toProjection();
 }

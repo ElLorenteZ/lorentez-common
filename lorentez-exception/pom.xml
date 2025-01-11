@@ -6,11 +6,11 @@
     <parent>
         <groupId>com.lorentez</groupId>
         <artifactId>lorentez-common</artifactId>
-        <version>0.0.2-SNAPSHOT</version>
+        <version>0.0.1</version>
     </parent>
 
     <artifactId>lorentez-exception</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.1</version>
 
     <dependencies>
         <dependency>

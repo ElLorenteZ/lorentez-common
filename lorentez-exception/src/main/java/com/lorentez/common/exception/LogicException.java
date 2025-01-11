@@ -1,6 +1,6 @@
 package com.lorentez.common.exception;
 
-public class LogicException extends RuntimeException implements FmException {
+public class LogicException extends RuntimeException implements PrintableException {
 
     public LogicException(String message) {
         super(message);

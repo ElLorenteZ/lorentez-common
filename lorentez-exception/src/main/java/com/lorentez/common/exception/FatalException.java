@@ -1,6 +1,6 @@
 package com.lorentez.common.exception;
 
-public class FatalException extends RuntimeException implements FmException {
+public class FatalException extends RuntimeException implements PrintableException {
 
     public FatalException(String message) {
         super(message);

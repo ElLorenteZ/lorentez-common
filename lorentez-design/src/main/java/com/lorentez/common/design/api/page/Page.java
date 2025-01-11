@@ -3,7 +3,6 @@ package com.lorentez.common.design.api.page;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.extern.jackson.Jacksonized;
-import org.springframework.data.domain.Page;
 
 import java.util.Collection;
 import java.util.function.Function;
@@ -11,7 +10,7 @@ import java.util.function.Function;
 @Builder
 @Getter
 @Jacksonized
-public class FmPage<TYPE> {
+public class Page<TYPE> {
 
     private final Collection<TYPE> content;
     private final int totalPages;
@@ -23,8 +22,8 @@ public class FmPage<TYPE> {
     private final boolean hasNext;
     private final boolean hasPrevious;
 
-    public static <TYPE, OTHER_TYPE> FmPage<TYPE> of(Page<OTHER_TYPE> page, Function<OTHER_TYPE, TYPE> mapper) {
-        return FmPage.<TYPE>builder()
+    public static <TYPE, OTHER_TYPE> Page<TYPE> of(org.springframework.data.domain.Page<OTHER_TYPE> page, Function<OTHER_TYPE, TYPE> mapper) {
+        return Page.<TYPE>builder()
                 .content(page.getContent()
                         .stream()
                         .map(mapper)
@@ -41,8 +40,8 @@ public class FmPage<TYPE> {
                 .build();
     }
 
-    public <DEST_TYPE> FmPage<DEST_TYPE> map(Function<TYPE, DEST_TYPE> mapper) {
-        return FmPage.<DEST_TYPE>builder()
+    public <DEST_TYPE> Page<DEST_TYPE> map(Function<TYPE, DEST_TYPE> mapper) {
+        return Page.<DEST_TYPE>builder()
                 .content(this.getContent()
                         .stream()
                         .map(mapper)

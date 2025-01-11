@@ -1,6 +1,6 @@
 package com.lorentez.common.exception;
 
-public class ObjectNotFoundException extends RuntimeException implements FmException {
+public class ObjectNotFoundException extends RuntimeException implements PrintableException {
 
     public ObjectNotFoundException(String message) {
         super(message);
